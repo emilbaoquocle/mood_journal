@@ -50,7 +50,7 @@ class _MyFormState extends State<MyForm> {
   double _imageNo;
   int _emotionNo = 0;
 
-  String _description = emotionCorr[0];
+  String _description;
   final formKey = GlobalKey<FormState>();
   final EmotionListModel emotions;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -64,16 +64,28 @@ class _MyFormState extends State<MyForm> {
   }
 
   void _submit() {
-    this._description = myController.text;
     this._imageNo = this._emotionNo.toDouble() + 1.0;
-    if (this.id <=   emotions.items.last.id ) {
-      emotions.update(Emotion(this.id, this._imageNo, this._date, this._description));
-    } else {
-      emotions.add(
+    this._description = myController.text;
+    emotions.add(
           Emotion(this.id, this._imageNo, this._date, this._description));
-    }
     Navigator.pop(context);
   }
+  //
+  // void _submit() {
+  //   this._imageNo = this._emotionNo.toDouble() + 1.0;
+  //   if (_description == null) {
+  //     _description = 'No Note';
+  //   } else {
+  //     this._description = myController.text;
+  //   }
+  //   if (this.id <= emotions.items.last.id) {
+  //     emotions.update(Emotion(this.id, this._imageNo, this._date, this._description));
+  //   } else {
+  //     emotions.add(
+  //         Emotion(this.id, this._imageNo, this._date, this._description));
+  //   }
+  //   Navigator.pop(context);
+  // }
 
 
   @override
@@ -94,7 +106,7 @@ class _MyFormState extends State<MyForm> {
           CarouselSlider(
             carouselController: buttonCarouselController,
             options: CarouselOptions(
-              viewportFraction: 0.5,
+              viewportFraction: 0.35,
               enableInfiniteScroll: true,
               autoPlay: false,
               aspectRatio: 2.0,
@@ -278,7 +290,7 @@ final List<Widget> imageSliders = imgList.map((item) => Container(
                   '${emotionCorr[imgList.indexOf(item)]}',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

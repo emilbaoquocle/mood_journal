@@ -1,3 +1,3 @@
 # mood_journal
 
-<img src="https://imgur.com/ZVW40dn" width="600" height="1308" />
+<img src="https://imgur.com/ZVW40dn" width="60" height="130" />

@@ -10,7 +10,6 @@ class NavPainter extends CustomClipper<Path> {
     ..strokeWidth=1.0
     ..color = Colors.black;
 
-
   @override
   Path getClip(Size size) {
     final Path path = Path();

@@ -66,9 +66,15 @@ class _MyFormState extends State<MyForm> {
   void _submit() {
     this._description = myController.text;
     this._imageNo = this._emotionNo.toDouble() + 1.0;
-    emotions.add(Emotion(this.id, this._imageNo, this._date, this._description));
+    if (this.id <=   emotions.items.last.id ) {
+      emotions.update(Emotion(this.id, this._imageNo, this._date, this._description));
+    } else {
+      emotions.add(
+          Emotion(this.id, this._imageNo, this._date, this._description));
+    }
     Navigator.pop(context);
   }
+
 
   @override
   Widget build(BuildContext context) {
